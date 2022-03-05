@@ -1,0 +1,40 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from time import sleep
+
+s=Service('/Users/aysebetulaksakal/Desktop/chromedriver')
+driver=webdriver.Chrome(service=s)
+driver.fullscreen_window()
+
+username='abeaksakal@gmail.com'
+password='Q1wsxedc.'
+url='https://giris.hepsiburada.com/'
+
+driver.get(url)
+driver.fullscreen_window()
+
+from selenium.webdriver.common.by import By
+
+element = driver.find_element(By.ID, "txtUserName")
+element.send_keys(username)
+
+element = driver.find_element(By.ID, "btnLogin")
+element.click()
+
+element = driver.find_element(By.ID, "txtPassword")
+element.send_keys(password)
+
+element = driver.find_element(By.ID, "btnEmailSelect")
+element.click()
+
+element = driver.find_element(By.ID, "shoppingCart")
+element.click()
+
+element = driver.find_element(By.ID, "continue_step_btn")
+element.click()
+sleep(2)
+element = driver.find_element(By.ID, "continue_step_btn")
+element.click()
+
+element = driver.find_element(By.XPATH, '/html/body/div/div/div/div[1]/div/div/div/div/div/div/div/div[1]/div[1]/div/div/div[1]/div[1]/div[1]/div')
+element.click()
