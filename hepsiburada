@@ -4,26 +4,23 @@ from time import sleep
 
 s=Service('/Users/aysebetulaksakal/Desktop/chromedriver')
 driver=webdriver.Chrome(service=s)
-driver.fullscreen_window()
+driver.maximize_window()
 
 username='abeaksakal@gmail.com'
 password='Q1wsxedc.'
 url='https://giris.hepsiburada.com/'
 
 driver.get(url)
-driver.fullscreen_window()
 
 from selenium.webdriver.common.by import By
 
 element = driver.find_element(By.ID, "txtUserName")
 element.send_keys(username)
-
 element = driver.find_element(By.ID, "btnLogin")
 element.click()
 
 element = driver.find_element(By.ID, "txtPassword")
 element.send_keys(password)
-
 element = driver.find_element(By.ID, "btnEmailSelect")
 element.click()
 
